@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>FlexD.CLI</AssemblyName>
+    <ToolCommandName>flex-d</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackAsTool>true</PackAsTool>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <Company>leeroya.com</Company>
+    <PackageProjectUrl>https://github.com/leeroya/flexd.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/leeroya/Gooi.git</RepositoryUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>0.1.3</Version>
+    <PackageId>FlexD.CLI</PackageId>
+    <Authors>Lee-Roy</Authors>
+    <Product>FlexD</Product>
+    <Description>Dotnet tool, package, stand alone exe that updates a hostfile based on an input method, direct file or REST call to an external system</Description>
+    <AssemblyName>FlexD</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!--Settings below are for self-contained, trimmed, single-file builds-->
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <ApplicationIcon>flexd.ico</ApplicationIcon>
+    <PackageLicenseUrl>https://github.com/leeroya/flexd/blob/main/LICENSE</PackageLicenseUrl>
+    <PackageTags>dotnet tool, cli, hostfile</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlexD.Http\FlexD.Http.csproj" />
+    <ProjectReference Include="..\FlexD.Contracts\FlexD.Contracts.csproj" />
+    <ProjectReference Include="..\FlexD.Core\FlexD.Core.csproj" />
+  </ItemGroup>
+
+</Project>

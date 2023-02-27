@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FlexD.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "http-source --endpoint \"HTTP://hosty.com\" --marker \"+++\" "
+    }
+  }
+}
