@@ -2,6 +2,7 @@
 using FlexD.Contracts.Interfaces.Infrastructure;
 using FlexD.Contracts.Interfaces.Options;
 using FlexD.Core.Infrastructure;
+using FlexD.Core.Options;
 using FlexD.Http;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
 
@@ -49,6 +50,12 @@ internal class Program
         services.Scan(c =>
         {
           c.FromAssemblyOf<ICommandOptions>()
+            .AddClasses(x => x.NotInNamespaceOf(typeof(RequestPerformanceBehaviour<,>))
+              .Where(type => type.Namespace != null && type.Namespace.Contains("FlexD")))
+            .AsImplementedInterfaces()
+            .WithTransientLifetime();
+          
+          c.FromAssemblyOf<IHostFileCommandOptions>()
             .AddClasses(x => x.NotInNamespaceOf(typeof(RequestPerformanceBehaviour<,>))
               .Where(type => type.Namespace != null && type.Namespace.Contains("FlexD")))
             .AsImplementedInterfaces()
