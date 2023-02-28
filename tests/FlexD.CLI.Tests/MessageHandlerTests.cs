@@ -21,8 +21,8 @@ public class MessageHandlerTests
     {
         var writer = new Mock<IInfrastructureOutputWriter>();
         
-        var messageHandler = new HttpMessageCommandHandler(writer.Object);
-        var result = await messageHandler.Handle(new HttpMessageCommand()
+        var messageHandler = new HttpCommandHandler(writer.Object);
+        var result = await messageHandler.Handle(new HttpCommand()
         {
             Endpoint = "HTTP://Foo.com",
             Marker = "+++",

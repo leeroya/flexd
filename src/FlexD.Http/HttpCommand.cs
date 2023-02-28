@@ -1,7 +1,7 @@
 ﻿namespace FlexD.Http;
 
 [Verb("http-source", HelpText = "Executes a HTTP Get and replaces host file node with result.")]
-public class HttpMessageCommand: IRequest<int>, IHttpCommandOptions
+public class HttpCommand: IRequest<int>, IHttpCommandOptions
 {
     [Option("Endpoint", SetName = "HTTP", HelpText = "Url to retrieve the required host file contents.")]
     public string? Endpoint { get; set; }
